@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Tech Daily Workflow Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        h4 {
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .intro {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .screenshot {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .screenshot img {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .screenshot-caption {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .example {
+            background: #fff9e6;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .important {
+            background: #ffe6e6;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .important-title {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .tip {
+            background: #e8f8f5;
+            border-left: 4px solid #1abc9c;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .tip-title {
+            font-weight: bold;
+            color: #1abc9c;
+            margin-bottom: 10px;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .checklist li:before {
+            content: "☐ ";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .breakdown {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .folder-structure {
+            background: #2c3e50;
+            color: #2ecc71;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            
+            h2 {
+                page-break-before: always;
+            }
+            
+            .screenshot img {
+                max-width: 100%;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DIGITAL TECH DAILY WORKFLOW</h1>
+        <p class="subtitle">A Complete Walkthrough From Arrival to Upload</p>
+        
+        <div class="intro">
+            <h3>YOUR DAY AS DIGITAL TECH</h3>
+            <p>This guide walks you through a complete shoot day from start to finish. Follow these steps in order, and you'll have everything you need to successfully support a photo shoot.</p>
+        </div>
+
+        <h2>WHEN YOU ARRIVE</h2>
+        
+        <h3><span class="step-number">1</span>Get Your Call Sheet</h3>
+        <p>First thing: grab today's call sheet. This document has EVERYTHING you need:</p>
+        <ul>
+            <li>Today's shoot type (LIFESTYLE, PRODUCT, or ECOMM)</li>
+            <li>All product information with <strong>full 9-digit product numbers</strong></li>
+            <li>Brand information</li>
+            <li>Any special instructions</li>
+        </ul>
+        
+        <div class="important">
+            <div class="important-title">IMPORTANT</div>
+            Keep this call sheet with you all day.
+        </div>
+
+        <h2>MORNING SETUP (Before Photographer Arrives)</h2>
+        
+        <h3><span class="step-number">2</span>Create Your Session Folder</h3>
+        <p>On the internal hard drive of your terminal, you'll be creating today's main session folder when you set up Capture One in the next step.</p>
+        
+        <div class="example">
+            <div class="example-title">Naming Format:</div>
+            <code>YYYYMMDD_BRAND_DESCRIPTOR</code>
+        </div>
+        
+        <div class="example">
+            <div class="example-title">Example:</div>
+            Today is October 21, 2025, you're shooting Magic The Gathering Avatar cards:
+            <div class="code-block">20251021_MTG_AVATAR</div>
+        </div>
+        
+        <div class="breakdown">
+            <strong>Breaking it down:</strong>
+            <ul>
+                <li><code>20251021</code> = Today's date (Year, Month, Day)</li>
+                <li><code>MTG</code> = Brand abbreviation (see reference list at end of guide)</li>
+                <li><code>AVATAR</code> = Brief description of what you're shooting</li>
+            </ul>
+        </div>
+
+        <h3><span class="step-number">3</span>Open Capture One and Create New Session</h3>
+        <ul>
+            <li>Launch Capture One (newest Studio version)</li>
+            <li>Select "New Session"</li>
+            <li>When prompted for location, select the internal hard drive</li>
+            <li>For the name, enter: <code>20251021_MTG_AVATAR</code></li>
+            <li>Capture One will create this folder and automatically generate subfolders inside (Capture, Output, Trash, etc.)</li>
+        </ul>
+
+        <h3><span class="step-number">4</span>Create Product Folders</h3>
+        <p>Now you're going to create a separate folder for each product on today's call sheet. These folders go <strong>inside the Capture folder</strong> of your session.</p>
+        
+        <div class="example">
+            <div class="example-title">Look at your call sheet.</div>
+            Let's say you have three products today:
+            <ul>
+                <li>Spider-Man Web Slinger action figure</li>
+                <li>Spider-Man Classic action figure</li>
+                <li>Spider-Man Villain Pack</li>
+            </ul>
+        </div>
+        
+        <p>For each product, create a folder using this format:</p>
+        <div class="code-block">G1234_LS_SPD_PRODUCTNAME_VARIANT</div>
+        
+        <div class="breakdown">
+            <strong>Here's what each part means:</strong><br><br>
+            
+            <strong>G1234</strong> = First 5 digits of the product number
+            <ul>
+                <li>Look at your call sheet</li>
+                <li>Find the full 9-digit product number (example: G12345678)</li>
+                <li><strong>Only use the first 5 digits</strong> for now: G1234</li>
+                <li>Write down the full 9-digit number somewhere - you'll need it later</li>
+            </ul>
+            
+            <strong>LS</strong> = Shot type
+            <ul>
+                <li><strong>LS</strong> for Lifestyle (90% of shoots)</li>
+                <li><strong>PROD</strong> for Product shots</li>
+                <li>This will be on your call sheet</li>
+            </ul>
+            
+            <strong>SPD</strong> = Brand abbreviation
+            <ul>
+                <li>Use the brand abbreviation list at the end of this guide</li>
+                <li>Example: SPD = Spider-Man</li>
+            </ul>
+            
+            <strong>PRODUCTNAME_VARIANT</strong> = The actual product name
+            <ul>
+                <li>Use underscores between words</li>
+                <li>Example: SPIDERMAN_WEB_SLINGER</li>
+            </ul>
+        </div>
+        
+        <div class="example">
+            <div class="example-title">Your three folders would look like:</div>
+            <div class="code-block">G1234_LS_SPD_SPIDERMAN_WEB_SLINGER
+G5678_LS_SPD_SPIDERMAN_CLASSIC
+G9012_LS_SPD_SPIDERMAN_VILLAIN_PACK</div>
+        </div>
+
+        <h3><span class="step-number">5</span>Add Folders to Favorites</h3>
+        <p>In Capture One, find all the folders you just created and add them to your Favorites panel. This lets you quickly switch between products throughout the day.</p>
+        <ul>
+            <li>Right-click each folder</li>
+            <li>Select "Add to Favorites"</li>
+            <li>Do this for every product folder</li>
+        </ul>
+
+        <h3><span class="step-number">6</span>Set Up Automatic File Naming</h3>
+        
+        <div class="important">
+            <div class="important-title">CRITICAL</div>
+            This makes sure every photo gets named correctly as it comes in.
+        </div>
+        
+        <p>In Capture One, go to the <strong>Next Capture Naming</strong> section and set up these tokens:</p>
+        
+        <div class="screenshot">
+            <img src="next_capture_naming.png" alt="Next Capture Naming Settings">
+            <p class="screenshot-caption">Set tokens to: Destination Folder Name _ 4 Digit Counter</p>
+        </div>
+        
+        <div class="tip">
+            <div class="tip-title">What this does:</div>
+            When you shoot into the folder <code>G1234_LS_SPD_SPIDERMAN_WEB_SLINGER</code>, Capture One will automatically name each photo:
+            <div class="code-block">G1234_LS_SPD_SPIDERMAN_WEB_SLINGER_0001.CR3
+G1234_LS_SPD_SPIDERMAN_WEB_SLINGER_0002.CR3
+G1234_LS_SPD_SPIDERMAN_WEB_SLINGER_0003.CR3</div>
+            You don't have to do anything - it happens automatically.
+        </div>
+
+        <h3><span class="step-number">7</span>Set Up Equipment with Photographer</h3>
+        <p>When the photographer arrives:</p>
+        <ul>
+            <li>Help set up lights and modifiers as needed</li>
+            <li>Connect the camera to Capture One (tethered shooting)</li>
+            <li>Make sure the cable is secure</li>
+            <li><strong>Do a test shot</strong> to verify everything captures correctly</li>
+        </ul>
+
+        <h3><span class="step-number">8</span>Set Your First Capture Folder</h3>
+        <p>Before shooting starts:</p>
+        <ul>
+            <li>In your Favorites panel, click the first product folder</li>
+            <li>Set it as the <strong>Capture Folder</strong></li>
+            <li>Double-check the folder name appears correctly in Next Capture Naming</li>
+            <li>Tell the photographer you're ready</li>
+        </ul>
+
+        <h2>DURING THE SHOOT</h2>
+        
+        <h3>Your Job: Monitor and Communicate</h3>
+        <p>You're not taking photos - you're watching the technical side so the photographer can focus on creative.</p>
+        
+        <div class="tip">
+            <div class="tip-title">Watch your Capture One window for:</div>
+            <ul>
+                <li>✓ Each photo appearing after the shutter clicks</li>
+                <li>✓ Camera connection staying active</li>
+                <li>✓ Images looking properly exposed (not too dark/too bright)</li>
+                <li>✓ No error messages</li>
+            </ul>
+        </div>
+        
+        <div class="important">
+            <div class="important-title">Alert the photographer immediately if:</div>
+            <ul>
+                <li>Camera disconnects</li>
+                <li>Images stop coming in</li>
+                <li>Photos look too dark or too bright</li>
+                <li>You see any technical errors</li>
+            </ul>
+        </div>
+
+        <h3>Switching Between Products</h3>
+        <p>When the photographer is ready to move to the next product:</p>
+        <ol>
+            <li><strong>In Favorites panel:</strong> Click the next product folder</li>
+            <li><strong>Set as Capture Folder</strong></li>
+            <li><strong>Verify</strong> the new folder name appears in Next Capture Naming</li>
+            <li><strong>Tell photographer</strong> "We're now shooting into [product name]"</li>
+            <li><strong>Resume shooting</strong></li>
+        </ol>
+        <p>Repeat this every time you switch products.</p>
+
+        <h3>Star Ratings (Not Your Job, But Here's What's Happening)</h3>
+        <p>Throughout the day (or at the end), the brand representative will go through images and rate them:</p>
+        <ul>
+            <li><strong>0 STAR</strong> = Everything (unrated/unselected images)</li>
+            <li><strong>1 STAR</strong> = Their selects (the hero images they want)</li>
+            <li><strong>3 or 5 STAR</strong> = Special separations (only if needed - like hand shots or gif sequences)</li>
+        </ul>
+        <p>Most shoots only use 0 and 1 star. The brand rep handles this - you don't need to do anything.</p>
+        
+        <div class="tip">
+            <div class="tip-title">If the brand rep asks you to star an image:</div>
+            Occasionally the brand person may see a shot they like during shooting and ask you to star it. Just assign it <strong>1 star</strong>. The brand rep can always undo this later when they make their final selects if they find a different photo they prefer.
+        </div>
+
+        <h3>SPECIAL INSTRUCTIONS: If This Is an ECOMM Shoot</h3>
+        <p>Look at your call sheet - does it say ECOMM?</p>
+        
+        <div class="important">
+            <div class="important-title">If YES (ECOMM shoot):</div>
+            <ul>
+                <li>The brand rep will give you a <strong>visual guide</strong> showing how shots should be cropped</li>
+                <li><strong>During or right after shooting:</strong> Use Capture One's crop tool to crop each shot</li>
+                <li>Have the brand rep approve the crop before moving on</li>
+                <li><strong>IMPORTANT:</strong> Remember this later during export - you'll need to check "Respect Crop"</li>
+            </ul>
+        </div>
+        
+        <div class="tip">
+            <div class="tip-title">If it's LIFESTYLE or PRODUCT (regular shoots):</div>
+            <ul>
+                <li>Do NOT crop anything</li>
+                <li>Images are delivered uncropped</li>
+            </ul>
+        </div>
+
+        <h2>AFTER THE SHOOT (Processing Time)</h2>
+        
+        <h3><span class="step-number">9</span>Export Your Images</h3>
+        <p>Once shooting is done, it's time to turn your CR3 files into TIFFs.</p>
+        
+        <p>Open the Export window in Capture One.</p>
+        
+        <h4>First, set up your recipe:</h4>
+        
+        <div class="screenshot">
+            <img src="export_recipe.png" alt="Export Recipe Settings">
+            <p class="screenshot-caption">Export Location settings showing subfolder naming</p>
+        </div>
+        
+        <p>Under the <strong>Export Location tab</strong>, find the <strong>Subfolder</strong> field and enter:</p>
+        <div class="code-block">Image Folder Name\Rating_STAR</div>
+        
+        <div class="tip">
+            <div class="tip-title">What this does:</div>
+            Creates organized folders like this:
+            <div class="folder-structure">Output/
+  └─ G1234_LS_SPD_SPIDERMAN_WEB_SLINGER/
+      ├─ 0_STAR/    ← All unrated images
+      └─ 1_STAR/    ← Client selects</div>
+        </div>
+        
+        <h4>Next, check your Export Adjustments:</h4>
+        
+        <div class="important">
+            <div class="important-title">If this was an ECOMM shoot:</div>
+            ☑ CHECK "Respect Crop"
+        </div>
+        
+        <div class="tip">
+            <div class="tip-title">If this was LIFESTYLE or PRODUCT (regular shoots):</div>
+            ☐ LEAVE "Ignore Crop" selected (default)
+        </div>
+        
+        <p><strong>The export format settings should already be correct:</strong></p>
+        <ul>
+            <li>Format: TIFF</li>
+            <li>8 bit, Uncompressed</li>
+            <li>ICC Profile: Adobe RGB (1998)</li>
+            <li>Resolution: 300 px/in</li>
+            <li>Scale: Fixed at 100%</li>
+        </ul>
+        
+        <h4>Now export:</h4>
+        <ol>
+            <li>Select all images from today's shoot</li>
+            <li>Click Export</li>
+            <li>Wait for all files to process</li>
+            <li><strong>Don't close Capture One yet</strong> - you'll need it if any exports fail</li>
+        </ol>
+
+        <h2>MAKING YOUR PDF CONTACT SHEETS</h2>
+        
+        <h3><span class="step-number">10</span>Open Adobe Bridge</h3>
+        <p>Once exports are complete, navigate to your Output folder.</p>
+        
+        <p>You should see folders like:</p>
+        <div class="folder-structure">Output/
+  └─ G1234_LS_SPD_SPIDERMAN_WEB_SLINGER/
+      ├─ 0_STAR/
+      └─ 1_STAR/</div>
+
+        <h3><span class="step-number">11</span>Create PDFs for Each Star Rating</h3>
+        
+        <h4>Setting Up Bridge Output Module:</h4>
+        <p>In Adobe Bridge, go to the <strong>Output</strong> module. You'll need to configure the PDF settings.</p>
+        
+        <div class="screenshot">
+            <img src="bridge_document.png" alt="Bridge Document Settings">
+            <p class="screenshot-caption">Document settings for PDF creation</p>
+        </div>
+        
+        <div class="screenshot">
+            <img src="bridge_grid.png" alt="Bridge Grid Settings">
+            <p class="screenshot-caption">Grid and Margins settings</p>
+        </div>
+        
+        <div class="screenshot">
+            <img src="bridge_header.png" alt="Bridge Header Settings">
+            <p class="screenshot-caption">Header and Footer settings</p>
+        </div>
+        
+        <div class="breakdown">
+            <strong>Document Settings:</strong>
+            <ul>
+                <li><strong>Template:</strong> AI Contact Sheet (A4, 4 x 3)</li>
+                <li><strong>Page Size:</strong> A4</li>
+                <li><strong>Width:</strong> 20.99 cm</li>
+                <li><strong>Height:</strong> 29.7 cm</li>
+                <li><strong>Background Color:</strong> White</li>
+                <li><strong>Resolution:</strong> 300 ppi</li>
+                <li><strong>Image Quality:</strong> 8</li>
+                <li><strong>Thumbnail Placement:</strong> Across First (By Row)</li>
+                <li>☐ Rotate Thumbnail for best fit (unchecked)</li>
+                <li>☐ Repeat One Photo Per Page (unchecked)</li>
+                <li>☑ Include Filename</li>
+                <li>☑ Include File Extension</li>
+                <li><strong>Filename Font:</strong> Arial, Size 4, Regular</li>
+            </ul>
+        </div>
+        
+        <div class="breakdown">
+            <strong>Grid And Margins:</strong>
+            <ul>
+                <li><strong>Columns:</strong> 3</li>
+                <li><strong>Rows:</strong> 4</li>
+                <li><strong>Cell Spacing:</strong>
+                    <ul>
+                        <li>Horizontal: 0.2 cm</li>
+                        <li>Vertical: 0.2 cm</li>
+                    </ul>
+                </li>
+                <li><strong>Cell Size:</strong>
+                    <ul>
+                        <li>Width: 6.59 cm</li>
+                        <li>Height: 6.91 cm</li>
+                    </ul>
+                </li>
+                <li>☐ Use Auto Spacing (unchecked)</li>
+                <li><strong>Margins:</strong> 0.42 cm on all sides (Top, Bottom, Left, Right)</li>
+            </ul>
+        </div>
+        
+        <div class="breakdown">
+            <strong>Header And Footer:</strong>
+            <ul>
+                <li>☑ Include Header</li>
+                <li><strong>Text:</strong> "Hasbro Global Photo Studios"</li>
+                <li><strong>Text Alignment:</strong> Left</li>
+                <li><strong>Header Font:</strong> Book Antiqua, Size 12, Bold</li>
+                <li><strong>Header Size:</strong> 0.55 cm</li>
+                <li><strong>Divider Size:</strong> 2 px</li>
+                <li><strong>Divider Color:</strong> Black</li>
+            </ul>
+        </div>
+        
+        <h4>Creating the PDFs:</h4>
+        
+        <div class="example">
+            <div class="example-title">For the 0_STAR folder:</div>
+            <ol>
+                <li>Open Adobe Bridge</li>
+                <li>Navigate to <code>Output/G1234_LS_SPD_SPIDERMAN_WEB_SLINGER/0_STAR/</code></li>
+                <li>Select all TIFF files in this folder</li>
+                <li>Go to the Output module</li>
+                <li>Verify all settings match those above</li>
+                <li>Name the PDF: <code>0_STAR.pdf</code></li>
+                <li><strong>Save it in the PARENT folder</strong> (up one level, alongside the 0_STAR and 1_STAR folders)</li>
+            </ol>
+        </div>
+        
+        <div class="example">
+            <div class="example-title">For the 1_STAR folder:</div>
+            <ol>
+                <li>Navigate to <code>Output/G1234_LS_SPD_SPIDERMAN_WEB_SLINGER/1_STAR/</code></li>
+                <li>Select all TIFF files</li>
+                <li>Same PDF settings</li>
+                <li>Name the PDF: <code>1_STAR.pdf</code></li>
+                <li><strong>Save it in the PARENT folder</strong> (alongside the star folders)</li>
+            </ol>
+        </div>
+        
+        <p><strong>If there are 3_STAR or 5_STAR folders:</strong> Repeat the same process for those.</p>
+        
+        <p><strong>Repeat for every product you shot today.</strong></p>
+        
+        <div class="tip">
+            <div class="tip-title">When you're done, each product folder should look like:</div>
+            <div class="folder-structure">G1234_LS_SPD_SPIDERMAN_WEB_SLINGER/
+  ├─ 0_STAR/
+  │   └─ [All the TIFF files]
+  ├─ 1_STAR/
+  │   └─ [All the TIFF files]
+  ├─ 0_STAR.pdf
+  └─ 1_STAR.pdf</div>
+        </div>
+
+        <h2>ORGANIZING FILES FOR DELIVERY</h2>
+        
+        <h3><span class="step-number">12</span>Add Full Product Numbers</h3>
+        <p>Right now your product folders have 5-digit numbers. You need to add the rest.</p>
+        
+        <p><strong>Pull out your call sheet again.</strong> Find those full 9-digit product numbers you wrote down earlier.</p>
+        
+        <p>For each product folder inside the Output folder:</p>
+        
+        <div class="example">
+            <div class="example-title">Example:</div>
+            <strong>Current name:</strong> <code>G1234_LS_SPD_SPIDERMAN_WEB_SLINGER</code><br>
+            <strong>Full 9-digit number from call sheet:</strong> G12345678<br>
+            <strong>New name:</strong> <code>G12345678_LS_SPD_SPIDERMAN_WEB_SLINGER</code>
+        </div>
+        
+        <p><strong>Rename each folder manually</strong> - just add those 4 missing digits after the first 5.</p>
+        <p>Do this for every product folder.</p>
+
+        <h3><span class="step-number">13</span>Rename and Move the Output Folder</h3>
+        
+        <div class="important">
+            <div class="important-title">Why do this?</div>
+            The <code>_TIFF</code> name means this folder can be safely deleted later if someone needs drive space. The original CR3s are always protected.
+        </div>
+        
+        <p>Right now your session looks like:</p>
+        <div class="folder-structure">20251021_MTG_AVATAR/
+  ├─ Capture/
+  │   └─ [CR3 files in product folders]
+  └─ Output/
+      └─ [TIFF files in product folders]</div>
+      
+        <p><strong>Here's what to do:</strong></p>
+        <ol>
+            <li>Navigate to the <strong>Output</strong> folder (it's inside your session folder)</li>
+            <li><strong>Rename it:</strong> Add <code>_TIFF</code> to the session name
+                <ul><li>Example: <code>20251021_MTG_AVATAR_TIFF</code></li></ul>
+            </li>
+            <li><strong>Move this folder OUT</strong> of the session folder</li>
+            <li>Place it at the same level as the session folder</li>
+        </ol>
+        
+        <p><strong>You should now see this on your drive:</strong></p>
+        <div class="folder-structure">20251021_MTG_AVATAR/              ← Original session (CR3 files)
+20251021_MTG_AVATAR_TIFF/         ← Processed files (TIFFs & PDFs)</div>
+
+        <h2>UPLOADING TO THE SERVER</h2>
+        
+        <p>Files go to <strong>two different server locations</strong>. Here's where each goes:</p>
+        
+        <h3><span class="step-number">14</span>Upload Original Session (CR3 Files)</h3>
+        
+        <p><strong>What:</strong> The entire <code>20251021_MTG_AVATAR</code> folder</p>
+        <p><strong>Where:</strong> <code>PhotoArchive\2025Photography\[BRAND]\</code></p>
+        
+        <div class="example">
+            <div class="example-title">Example:</div>
+            <div class="code-block">20251021_MTG_AVATAR → PhotoArchive\2025Photography\MTG\</div>
+        </div>
+        
+        <p>Upload the whole folder.</p>
+
+        <h3><span class="step-number">15</span>Upload Processed Files (TIFFs & PDFs)</h3>
+        
+        <p><strong>What:</strong> Individual product folders from inside the <code>_TIFF</code> folder</p>
+        <p><strong>Where:</strong> <code>Photo Studio\2025 Photography\[BRAND]\</code></p>
+        
+        <div class="important">
+            <div class="important-title">IMPORTANT</div>
+            Upload each product folder <strong>separately</strong>, NOT the entire _TIFF parent folder.
+        </div>
+        
+        <div class="example">
+            <div class="example-title">Example:</div>
+            <div class="code-block">G12345678_LS_SPD_SPIDERMAN_WEB_SLINGER → Photo Studio\2025 Photography\SPD\
+G12345678_LS_SPD_SPIDERMAN_CLASSIC → Photo Studio\2025 Photography\SPD\
+G12345678_LS_SPD_VILLAIN_PACK → Photo Studio\2025 Photography\SPD\</div>
+        </div>
+        
+        <p>Each product folder goes into the correct brand folder on the server.</p>
+
+        <h2>END OF DAY</h2>
+        
+        <h3><span class="step-number">16</span>Final Checklist</h3>
+        <p>Go through this list before you leave:</p>
+        
+        <ul class="checklist">
+            <li>All exports completed successfully</li>
+            <li>PDFs created for all star-rated folders (0_STAR, 1_STAR, etc.)</li>
+            <li>Product folders renamed with full 9-digit numbers</li>
+            <li>Output folder renamed to <code>SESSIONNAME_TIFF</code></li>
+            <li>Output folder moved out to sit next to session folder</li>
+            <li>Original session folder uploaded to PhotoArchive</li>
+            <li>Individual product folders uploaded to Photo Studio</li>
+            <li>Equipment cleaned and put away</li>
+            <li>Workspace cleaned and ready for tomorrow</li>
+        </ul>
+
+        <h3><span class="step-number">17</span>Leave Files on Terminal</h3>
+        
+        <div class="important">
+            <div class="important-title">DO NOT DELETE FILES</div>
+            Do not delete files from the computer terminal.
+        </div>
+        
+        <ul>
+            <li>Files stay on the terminal until full-time staff clean them up</li>
+            <li>If drive space is critically needed, delete the <strong>oldest <code>_TIFF</code> folders first</strong></li>
+            <li>Never delete original session folders unless told to by full-time staff</li>
+        </ul>
+
+        <h2>BRAND ABBREVIATIONS REFERENCE</h2>
+        
+        <p>Use these brand abbreviations when creating folder names and for server uploads:</p>
+        
+        <table>
+            <tr>
+                <th>Abbreviation</th>
+                <th>Brand Name</th>
+            </tr>
+            <tr>
+                <td>BA</td>
+                <td>Baby Alive</td>
+            </tr>
+            <tr>
+                <td>BB</td>
+                <td>Beyblade</td>
+            </tr>
+            <tr>
+                <td>FUR</td>
+                <td>Furby</td>
+            </tr>
+            <tr>
+                <td>GHB</td>
+                <td>GhostBusters</td>
+            </tr>
+            <tr>
+                <td>GIJ</td>
+                <td>GI Joe</td>
+            </tr>
+            <tr>
+                <td>GMS</td>
+                <td>Games</td>
+            </tr>
+            <tr>
+                <td>HDP</td>
+                <td>HYDROPODS</td>
+            </tr>
+            <tr>
+                <td>IMF</td>
+                <td>Iron Man And Friends</td>
+            </tr>
+            <tr>
+                <td>MM</td>
+                <td>Mix Mashers</td>
+            </tr>
+            <tr>
+                <td>MPH</td>
+                <td>Mr. Potato Head</td>
+            </tr>
+            <tr>
+                <td>MTG</td>
+                <td>Magic The Gathering</td>
+            </tr>
+            <tr>
+                <td>MVL</td>
+                <td>Marvel</td>
+            </tr>
+            <tr>
+                <td>NAN</td>
+                <td>Nanomals</td>
+            </tr>
+            <tr>
+                <td>Nerf</td>
+                <td>Nerf</td>
+            </tr>
+            <tr>
+                <td>PD</td>
+                <td>PlayDoh</td>
+            </tr>
+            <tr>
+                <td>PEP</td>
+                <td>PeppaPig</td>
+            </tr>
+            <tr>
+                <td>PR</td>
+                <td>Power Rangers</td>
+            </tr>
+            <tr>
+                <td>SAF</td>
+                <td>Spidey And Friends</td>
+            </tr>
+            <tr>
+                <td>SOA</td>
+                <td>Super Soaker</td>
+            </tr>
+            <tr>
+                <td>SPD</td>
+                <td>Spider-Man</td>
+            </tr>
+            <tr>
+                <td>SW</td>
+                <td>Star Wars</td>
+            </tr>
+            <tr>
+                <td>SWOF</td>
+                <td>Secret World Of Fairies</td>
+            </tr>
+            <tr>
+                <td>TRA</td>
+                <td>Transformers</td>
+            </tr>
+        </table>
+        
+        <div class="tip">
+            <div class="tip-title">Can't find a brand?</div>
+            Check the photo studio server - there's a complete list in the brand folders.
+        </div>
+
+        <h2>TROUBLESHOOTING</h2>
+        
+        <h3>Camera Disconnects During Shoot</h3>
+        <ol>
+            <li>Check if the camera battery has died - if so, provide a charged battery to the photographer</li>
+            <li>Check USB cable - make sure it's firmly connected</li>
+            <li>In Capture One: Go to Camera menu → Reconnect</li>
+            <li>Still not working? Restart Capture One</li>
+            <li>Last resort: Power cycle the camera</li>
+        </ol>
+
+        <h3>Images Aren't Capturing</h3>
+        <ul>
+            <li>Check if the camera battery has died - if so, provide a charged battery to the photographer</li>
+            <li>Is the correct Capture Folder selected in Favorites?</li>
+            <li>Is the camera in tethered mode?</li>
+            <li>Is there a memory card in the camera? (Required even for tethered)</li>
+            <li>Try taking the USB cable out and plugging it back in</li>
+        </ul>
+
+        <h3>Export Fails or Stops</h3>
+        <ul>
+            <li>Check how much space is left on the hard drive</li>
+            <li>Make sure the Output folder exists</li>
+            <li>Try exporting a smaller batch of images first</li>
+            <li>If one product fails, try exporting others - you can troubleshoot that one separately</li>
+        </ul>
+
+        <h3>Photos Have Wrong Names</h3>
+        <ul>
+            <li>Check that "Destination Folder Name_4 Digit Counter" tokens are set</li>
+            <li>Make sure the correct folder is set as Capture Folder</li>
+            <li>Double-check folder names match the format exactly</li>
+        </ul>
+
+        <h3>Can't Find PDFs After Creating Them in Bridge</h3>
+        <ul>
+            <li>Did you select all the TIFF files before creating the PDF?</li>
+            <li>Did you save the PDF in the correct folder (parent folder, alongside the star folders)?</li>
+            <li>Check your Bridge output settings match the specifications in this guide</li>
+        </ul>
+
+        <h3>Not Sure Which Folder to Shoot Into</h3>
+        <ul>
+            <li>Check with photographer which product you're shooting</li>
+            <li>Look at your call sheet</li>
+            <li>Select the matching folder from Favorites</li>
+            <li>When in doubt, ASK - better to pause 10 seconds than shoot into the wrong folder</li>
+        </ul>
+
+        <h2>NOTES</h2>
+        
+        <div style="border: 1px solid #ddd; padding: 20px; min-height: 100px; background: #fafafa; margin: 20px 0;">
+            <p style="color: #999; font-style: italic;">Use this space for shoot-specific notes or special instructions...</p>
+        </div>
+        
+        <hr style="margin: 40px 0; border: none; border-top: 2px solid #ddd;">
+        
+        <div style="text-align: center; color: #7f8c8d; margin-top: 40px;">
+            <p><strong>Last Updated:</strong> October 28, 2025</p>
+            <p><strong>Version:</strong> 1.0</p>
+            <p><strong>Questions or Issues?</strong> Contact Lead Digital Tech</p>
+            <p style="margin-top: 20px; font-size: 1.1em; color: #3498db;"><strong>You've got this!</strong> Follow these steps in order, stay organized, and communicate with your photographer. This might seem like a lot the first time, but after a few shoots it becomes second nature.</p>
+        </div>
+    </div>
+</body>
+</html>
