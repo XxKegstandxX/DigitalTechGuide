@@ -1,6 +1,8 @@
 <body>
     <div class="container">
-        <img src="HGPS.png" alt="Hasbro Global Photo Studios" class="company-logo">
+        <div class="logo-header">
+            <img src="HGPS.png" alt="Hasbro Global Photo Studios" class="company-logo">
+        </div>
         
         <h1>DIGITAL TECH DAILY WORKFLOW</h1><!DOCTYPE html>
 <html lang="en">
@@ -28,17 +30,21 @@
             margin: 0 auto;
             background: white;
             padding: 40px;
-            padding-top: 120px;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            position: relative;
+        }
+        
+        .logo-header {
+            width: 100%;
+            text-align: right;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
         }
         
         .company-logo {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            max-width: 250px;
+            max-width: 300px;
             height: auto;
+            display: inline-block;
         }
         
         h1 {
